@@ -1,0 +1,354 @@
+:root{
+
+    --Scissors_Gradient-color1: hsl(39, 89%, 49%);
+    --Scissors_Gradient-color2: hsl(40, 84%, 53%);
+
+    --Paper_Gradient-color1: hsl(230, 89%, 62%);
+    --Paper_Gradient-color2: hsl(230, 89%, 65%);
+
+    --Rock_Gradient-color1: hsl(349, 71%, 52%);
+    --Rock_Gradient-color2: hsl(349, 70%, 56%);
+
+    --Cyan-Gradient-color1: hsl(189, 59%, 53%);
+    --Cyan-Gradient-color2: hsl(189, 58%, 57%);
+
+    --Dark_Text: hsl(229, 25%, 31%);
+    --Score_Text: hsl(229, 64%, 46%);
+    --Header_Outline: hsl(217, 16%, 45%);
+
+    --radial-GD_color1: hsl(214, 47%, 23%);
+    --radial-GD_color2: hsl(237, 49%, 15%);
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    min-height: 800px;
+    background-image: radial-gradient(var(--radial-GD_color1), var(--radial-GD_color2));
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    overflow-x: hidden;
+}
+p{
+    margin: 0;
+}
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+main{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 25% 65% 10%;
+}
+
+.header-container{
+    border: 3px solid var(--Header_Outline);
+    border-radius: 15px;
+    height: 80%;
+    width: 60%;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.choices-header{
+    color: white;
+    margin-left: 30px;
+    font-size: 2.5em;
+    line-height: 35px;
+}
+.scoreboard-header{
+    background-color: white;
+    width: 180px;
+    height: 85%;
+    border-radius: 10px;
+    margin-right: 20px;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+}
+.scoreboard-header p:nth-child(1){
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    color: var(--Score_Text);
+}
+.scoreboard-header p:nth-child(2){
+    font-size: 5em;
+    letter-spacing: 2px;
+    color: var(--Dark_Text);
+    font-weight: bold;
+}
+
+.choice-buttons-container{
+    min-width: max-content;
+    justify-self: center;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    position: relative;
+}
+.choice-button{
+    margin: 40px;
+    background-color: white;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 20px solid transparent;
+    background-clip: padding-box;
+    cursor: pointer;
+}
+.choice-buttons-container .choice-button:nth-child(1){
+    justify-self: end;
+}
+.choice-buttons-container .choice-button:nth-child(3){
+    grid-column: 1/4;
+    justify-self: center;
+}
+.choice-button::after {
+    position: absolute;
+    top: -20px; bottom: -20px;
+    left: -20px; right: -20px;
+    content: '';
+    z-index: -1;
+    border-radius: 50%;
+}
+.choice-button-paper::after{
+    background: linear-gradient(var(--Paper_Gradient-color1), var(--Paper_Gradient-color2));
+}
+.choice-button-scissors::after{
+    background: linear-gradient(var(--Scissors_Gradient-color1), var(--Scissors_Gradient-color2));
+}
+.choice-button-rock::after{
+    background: linear-gradient(var(--Rock_Gradient-color1), var(--Rock_Gradient-color2));
+}
+.triangle-svg{
+    position: absolute;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -2;
+}
+
+
+.rules-button{
+    border: 3px solid var(--Header_Outline);
+    color: white;
+    width: 120px;
+    height: 40px;
+    border-radius: 8px;
+    justify-self: right;
+}
+.rules-button-container{
+    justify-self: right;
+    padding-right: 50px;
+}
+
+
+.rules-main-container{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.473);
+    display: none;
+    place-items: center;
+}
+.rules-container{
+    background-color: white;
+    width: 450px;
+    height: 450px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+.rules-container div{
+    width: 100%;
+    height: 100%;
+}
+.rules-container div:nth-child(1){
+    display: flex;
+    width: 80%;
+    justify-self: center;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--Dark_Text);
+}
+.close-rules-icon{
+    color: rgb(187, 187, 187);
+    font-size: 2em;
+}
+.rules-container div:nth-child(2){
+    display: grid;
+    place-items: center;
+}
+
+/* hide mobile close rules button */
+.rules-container button:nth-child(3){
+    display: none;
+}
+
+
+.choice-section{
+    display: none;
+    width: 900px;
+    justify-self: center;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+    justify-items: center;
+    color: white;
+}
+.choice-section .choice-button{
+    position: absolute;
+    visibility: hidden;
+}
+.user-choice-container, .ai-choice-container{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: 50% 50%;
+    height: 100%;
+    width: 100%;
+}
+.user-choice-container .header, .ai-choice-container .header{
+    margin-bottom: 70px;
+    letter-spacing: 2px;
+    font-size: 1.3em;
+}
+.winning-message-container{
+    display: grid;
+    visibility: hidden;
+    gap: 20px;
+}
+.winning-message-container p{
+    font-size: 4em;
+}
+.winning-message-container button{
+    background-color: white;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    letter-spacing: 3px;
+    color: var(--Dark_Text);
+}
+.placeholder-choice{
+    position: absolute;
+    z-index: -1;
+    background-color: var(--radial-GD_color2);
+    opacity: 0.4;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+@media (max-width: 950px) {
+    .choice-section{
+        width: 100%;
+    }
+}
+@media (max-width: 800px) {
+    .header-container{
+        width: 90%;
+        height: 60%;
+    }
+    .scoreboard-header{
+        width: 120px;
+        margin-right: 15px;
+    }
+    .scoreboard-header p:nth-child(1){
+        font-size: 1em;
+    }
+    .scoreboard-header p:nth-child(2){
+        font-size: 3em;
+    }
+
+    .choice-button{
+        width: 150px;
+        height: 150px;
+    }
+
+    .choice-section{
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+    }
+    .winning-message-container{
+        grid-column: 1/3;
+        grid-row: 2;
+    }
+}
+@media (max-width: 600px) {
+    .choices-header{
+        font-size: 1.4em;
+    }
+    .choice-buttons-container{
+        position: relative;
+        top: 10%;
+        height: 60%;
+        width: 90%;
+    }
+    .triangle-svg img{
+        width: 50%;
+        height: 50%;
+    }
+    .choice-buttons-container .choice-button{
+        margin: 30px;
+        width: 100px;
+        height: 100px;
+        border: 15px solid transparent;
+    }
+
+    .user-choice-container .header, .ai-choice-container .header{
+        grid-row: 2;
+        margin-top: 120px;
+        font-size: 1em;
+    }
+    .user-choice-container .choice-button, .ai-choice-container .choice-button{
+        width: 100px;
+        height: 100px;
+        border: 15px solid transparent;
+    }
+    .choice-button::after {
+        top: -15px; bottom: -15px;
+        left: -15px; right: -15px;
+    }
+    .rules-button-container{
+        justify-self: center;
+        padding-right: 0;
+    }
+
+
+    .rules-container{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        grid-template-rows: 20% 60% 20%;
+    }
+
+    /* hide desktop close rules button */
+    .rules-container div:nth-child(1) button{
+        display: none;
+    }
+    /* show mobile close rules button */
+    .rules-container button:nth-child(3){
+        display: block;
+    }
+}
+

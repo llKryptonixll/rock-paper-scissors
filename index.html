@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- fontawsome -->
+  <script src="https://kit.fontawesome.com/031d24fa49.js" crossorigin="anonymous"></script>
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- my scripts -->
+  <script src="gamelogic.js" defer></script>
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+
+</head>
+<body>
+  
+  <main>
+    <section class="header-container">
+      <div class="choices-header">
+        <p>ROCK</p>
+        <p>PAPER</p>
+        <p>SCISSORS</p>
+      </div>
+      <div class="scoreboard-header">
+        <p>SCORE</p>
+        <p class="score">0</p>
+      </div>
+    </section>
+
+    <section class="choice-buttons-container">
+      <div class="choice-button choice-button-paper choice-button-JS">
+        <img src="images/icon-paper.svg" alt="paper-choice">
+      </div>
+      <div class="choice-button choice-button-scissors choice-button-JS">
+        <img src="images/icon-scissors.svg" alt="paper-choice">
+      </div>
+      <div class="choice-button choice-button-rock choice-button-JS">
+        <img src="images/icon-rock.svg" alt="paper-choice">
+      </div>
+
+      <div class="triangle-svg">
+        <img src="images/bg-triangle.svg" alt="styling-component-triangle">
+      </div>
+    </section>
+
+    <!-- choice section -->
+    <section class="choice-section">
+      <div class="user-choice-container">
+        <p class="header">YOU PICKED</p>
+        <div class="choice-button choice-button-paper all-choices">
+          <img src="images/icon-paper.svg" alt="paper-choice">
+        </div>
+        <div class="choice-button choice-button-scissors all-choices">
+          <img src="images/icon-scissors.svg" alt="paper-choice">
+        </div>
+        <div class="choice-button choice-button-rock all-choices">
+          <img src="images/icon-rock.svg" alt="paper-choice">
+        </div>
+
+        <div class="placeholder-choice user-choice-placeholder"></div>
+      </div>
+
+      <div class="winning-message-container">
+        <p>-</p>
+        <button>PLAY AGAIN</button>
+      </div>
+
+      <div class="ai-choice-container">
+        <p class="header">THE HOUSE PICKED</p>
+        <div class="choice-button choice-button-paper all-choices">
+          <img src="images/icon-paper.svg" alt="paper-choice">
+        </div>
+        <div class="choice-button choice-button-scissors all-choices">
+          <img src="images/icon-scissors.svg" alt="paper-choice">
+        </div>
+        <div class="choice-button choice-button-rock all-choices">
+          <img src="images/icon-rock.svg" alt="paper-choice">
+        </div>
+
+        <div class="placeholder-choice"></div>
+      </div>
+    </section>
+
+    <section class="rules-button-container">
+      <button class="rules-button">RULES</button>
+    </section>
+
+    <!-- rules modal -->
+    <section class="rules-main-container">
+      <div class="rules-container">
+        <div>
+          <p>RULES</p>
+          <button>
+            <i class="fa-solid fa-xmark close-rules-icon"></i>
+          </button>
+        </div>
+  
+        <div>
+          <img src="images/image-rules.svg" alt="rock-paper-scissors-rules">
+        </div>
+
+        <button>
+          <i class="fa-solid fa-xmark close-rules-icon"></i>
+        </button>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
