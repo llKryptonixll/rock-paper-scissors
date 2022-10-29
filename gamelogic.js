@@ -31,7 +31,10 @@ restartButton.addEventListener("click", () => {
     const allChoices = document.querySelectorAll(".all-choices");
     allChoices.forEach((choice) => {
         choice.style.visibility = "hidden";
-    })
+    });
+
+    generateUserWinning_BoxShadow("none");
+    generateAiWinning_BoxShadow("none");
 });
 
 // game logic
@@ -105,27 +108,46 @@ function checkForWinner(button, randomIndex) {
         //check winner
         if(button.classList.contains("choice-button-paper") && randomIndex == 1){
             winningMessage.innerText = "YOU LOSE";
+            generateAiWinning_BoxShadow("0px 0px 0px 40px #80808026, 0px 0px 0px 80px #8080801a, 0px 0px 0px 120px #8080800a");
         }
         if(button.classList.contains("choice-button-paper") && randomIndex == 2){
             winningMessage.innerText = "YOU WIN";
             scoreBoard.innerText = count +=1;
+            generateUserWinning_BoxShadow("0px 0px 0px 40px #80808026, 0px 0px 0px 80px #8080801a, 0px 0px 0px 120px #8080800a");
         }
 
         if(button.classList.contains("choice-button-scissors") && randomIndex == 2){
             winningMessage.innerText = "YOU LOSE";
+            generateAiWinning_BoxShadow("0px 0px 0px 40px #80808026, 0px 0px 0px 80px #8080801a, 0px 0px 0px 120px #8080800a");
         }
         if(button.classList.contains("choice-button-scissors") && randomIndex == 0){
             winningMessage.innerText = "YOU WIN";
             scoreBoard.innerText = count +=1;
+            generateUserWinning_BoxShadow("0px 0px 0px 40px #80808026, 0px 0px 0px 80px #8080801a, 0px 0px 0px 120px #8080800a");
         }
 
         if(button.classList.contains("choice-button-rock") && randomIndex == 0){
             winningMessage.innerText = "YOU LOSE";
+            generateAiWinning_BoxShadow("0px 0px 0px 40px #80808026, 0px 0px 0px 80px #8080801a, 0px 0px 0px 120px #8080800a");
         }
         if(button.classList.contains("choice-button-rock") && randomIndex == 1){
             winningMessage.innerText = "YOU WIN";
             scoreBoard.innerText = count +=1;
+            generateUserWinning_BoxShadow("0px 0px 0px 40px #80808026, 0px 0px 0px 80px #8080801a, 0px 0px 0px 120px #8080800a");
         }
         
     },1500)
+}
+
+function generateUserWinning_BoxShadow(shadow) {
+    const allUserChoices = document.querySelectorAll(".user-choice-container .choice-button");
+    allUserChoices.forEach((choice) => {
+        choice.style.boxShadow = shadow;
+    })
+}
+function generateAiWinning_BoxShadow(shadow) {
+    const allAiChoices = document.querySelectorAll(".ai-choice-container .choice-button");
+    allAiChoices.forEach((choice) => {
+        choice.style.boxShadow = shadow;
+    })
 }

@@ -108,6 +108,9 @@ main{
     background-clip: padding-box;
     cursor: pointer;
 }
+.choice-buttons-container .choice-button:hover{
+    box-shadow: 0px 0px 0px 40px #80808026;
+}
 .choice-buttons-container .choice-button:nth-child(1){
     justify-self: end;
 }
@@ -151,6 +154,11 @@ main{
     height: 40px;
     border-radius: 8px;
     justify-self: right;
+    transition: 200ms;
+}
+.rules-button:hover{
+    letter-spacing: 10px;
+    transition: 200ms;
 }
 .rules-button-container{
     justify-self: right;
@@ -247,6 +255,13 @@ main{
     font-size: 1.1em;
     letter-spacing: 3px;
     color: var(--Dark_Text);
+    border: 2px solid transparent;
+}
+.winning-message-container button:hover{
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    transition: 200ms;
 }
 .placeholder-choice{
     position: absolute;
@@ -280,9 +295,13 @@ main{
         font-size: 3em;
     }
 
-    .choice-button{
+    .choice-button, .placeholder-choice{
         width: 150px;
         height: 150px;
+    }
+
+    .user-choice-container .header, .ai-choice-container .header{
+        margin-bottom: 120px;
     }
 
     .choice-section{
@@ -310,20 +329,24 @@ main{
     }
     .choice-buttons-container .choice-button{
         margin: 30px;
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         border: 15px solid transparent;
     }
 
     .user-choice-container .header, .ai-choice-container .header{
         grid-row: 2;
-        margin-top: 120px;
+        margin-top: 160px;
         font-size: 1em;
     }
     .user-choice-container .choice-button, .ai-choice-container .choice-button{
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         border: 15px solid transparent;
+    }
+    .placeholder-choice{
+        width: 80px;
+        height: 80px;
     }
     .choice-button::after {
         top: -15px; bottom: -15px;
