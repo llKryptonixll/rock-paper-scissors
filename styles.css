@@ -295,9 +295,12 @@ main{
         font-size: 3em;
     }
 
-    .choice-button, .placeholder-choice{
+    .choice-button{
         width: 150px;
         height: 150px;
+    }
+    .placeholder-choice{
+        display: none;
     }
 
     .user-choice-container .header, .ai-choice-container .header{
@@ -343,10 +346,6 @@ main{
         width: 80px;
         height: 80px;
         border: 15px solid transparent;
-    }
-    .placeholder-choice{
-        width: 80px;
-        height: 80px;
     }
     .choice-button::after {
         top: -15px; bottom: -15px;
