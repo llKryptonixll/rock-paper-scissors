@@ -25,7 +25,7 @@ body{
     margin: 0;
     padding: 0;
     height: 100vh;
-    min-height: 950px;
+    min-height: 800px;
     background-image: radial-gradient(var(--radial-GD_color1), var(--radial-GD_color2));
     font-family: 'Barlow Semi Condensed', sans-serif;
     overflow-x: hidden;
@@ -281,6 +281,9 @@ main{
     }
 }
 @media (max-width: 800px) {
+    .choice-section{
+        margin-top: 100px;
+    }
     .header-container{
         width: 90%;
         height: 60%;
@@ -315,6 +318,9 @@ main{
     }
 }
 @media (max-width: 600px) {
+    .choice-section{
+        margin-top: 0;
+    }
     .choices-header{
         font-size: 1.4em;
     }
