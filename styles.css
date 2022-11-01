@@ -25,7 +25,7 @@ body{
     margin: 0;
     padding: 0;
     height: 100vh;
-    min-height: 800px;
+    min-height: 950px;
     background-image: radial-gradient(var(--radial-GD_color1), var(--radial-GD_color2));
     font-family: 'Barlow Semi Condensed', sans-serif;
     overflow-x: hidden;
@@ -225,17 +225,18 @@ main{
 .choice-section .choice-button{
     position: absolute;
     visibility: hidden;
+    margin: 0;
 }
 .user-choice-container, .ai-choice-container{
-    display: grid;
+    display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
     grid-template-rows: 50% 50%;
     height: 100%;
     width: 100%;
 }
 .user-choice-container .header, .ai-choice-container .header{
-    margin-bottom: 70px;
+    margin-bottom: 300px;
     letter-spacing: 2px;
     font-size: 1.3em;
 }
@@ -303,16 +304,13 @@ main{
         display: none;
     }
 
-    .user-choice-container .header, .ai-choice-container .header{
-        margin-bottom: 120px;
-    }
-
     .choice-section{
         grid-template-columns: 50% 50%;
         grid-template-rows: 50% 50%;
     }
     .winning-message-container{
         grid-column: 1/3;
+        align-self: flex-start;
         grid-row: 2;
     }
 }
@@ -338,8 +336,7 @@ main{
     }
 
     .user-choice-container .header, .ai-choice-container .header{
-        grid-row: 2;
-        margin-top: 160px;
+        margin-bottom: 200px;
         font-size: 1em;
     }
     .user-choice-container .choice-button, .ai-choice-container .choice-button{
