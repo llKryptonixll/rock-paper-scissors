@@ -12,6 +12,12 @@ closeModalButtons.forEach((button) => {
     });
 });
 
+// use local storage count onload to keep the game score
+window.addEventListener("load", () => {
+    const scoreBoard = document.querySelector(".score");
+    
+    scoreBoard.innerText = parseInt(localStorage.getItem("game-score"));
+});
 
 // restart game
 const restartButton = document.querySelector(".winning-message-container button");
@@ -83,12 +89,12 @@ function showAiChoice(randomIndex) {
     },1000)
 }
 
-let count = 0;
+let count = parseInt(localStorage.getItem("game-score"));
 function checkForWinner(button, randomIndex) {
     // first show the board
     const winnerBoard = document.querySelector(".winning-message-container");
     const winningMessage = document.querySelector(".winning-message-container p");
-    const scoreBoard = document.querySelector(".score")
+    const scoreBoard = document.querySelector(".score");
 
     setTimeout(() => {
         winnerBoard.style.visibility = "visible";
@@ -112,7 +118,7 @@ function checkForWinner(button, randomIndex) {
         }
         if(button.classList.contains("choice-button-paper") && randomIndex == 2){
             winningMessage.innerText = "YOU WIN";
-            scoreBoard.innerText = count +=1;
+            scoreBoard.innerText = count += 1;
             generateUserWinning_BoxShadow("0px 0px 0px 40px #80808026, 0px 0px 0px 80px #8080801a, 0px 0px 0px 120px #8080800a");
         }
 
@@ -122,7 +128,7 @@ function checkForWinner(button, randomIndex) {
         }
         if(button.classList.contains("choice-button-scissors") && randomIndex == 0){
             winningMessage.innerText = "YOU WIN";
-            scoreBoard.innerText = count +=1;
+            scoreBoard.innerText = count += 1;
             generateUserWinning_BoxShadow("0px 0px 0px 40px #80808026, 0px 0px 0px 80px #8080801a, 0px 0px 0px 120px #8080800a");
         }
 
@@ -132,9 +138,13 @@ function checkForWinner(button, randomIndex) {
         }
         if(button.classList.contains("choice-button-rock") && randomIndex == 1){
             winningMessage.innerText = "YOU WIN";
-            scoreBoard.innerText = count +=1;
+            scoreBoard.innerText = count += 1;
             generateUserWinning_BoxShadow("0px 0px 0px 40px #80808026, 0px 0px 0px 80px #8080801a, 0px 0px 0px 120px #8080800a");
         }
+
+
+        // add game-score to local storage
+        localStorage.setItem("game-score", scoreBoard.innerText);
         
     },1500)
 }
@@ -143,11 +153,11 @@ function generateUserWinning_BoxShadow(shadow) {
     const allUserChoices = document.querySelectorAll(".user-choice-container .choice-button");
     allUserChoices.forEach((choice) => {
         choice.style.boxShadow = shadow;
-    })
+    });
 }
 function generateAiWinning_BoxShadow(shadow) {
     const allAiChoices = document.querySelectorAll(".ai-choice-container .choice-button");
     allAiChoices.forEach((choice) => {
         choice.style.boxShadow = shadow;
-    })
+    });
 }
